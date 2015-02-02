@@ -1,1 +1,58 @@
-/home/irina/.vimrc
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Bundle 'raimondi/delimitmate'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdtree'
+Bundle 'wincent/Command-T'
+Plugin 'kien/ctrlp.vim'
+Plugin 'danro/rename.vim'
+Bundle 'slim-template/vim-slim.git'
+Plugin 'scrooloose/nerdcommenter'
+Bundle 'groenewege/vim-less'
+Plugin 'grep.vim'
+Plugin 'JavaKit'
+
+call vundle#end()
+syntax enable
+filetype plugin indent on
+
+map <C-n> :NERDTreeToggle<CR>
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+"nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>`:noh<CR>
+"nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>`:noh<CR>
+"nnoremap <silent><A-j> :set paste<CR>m`o<Esc>`:set nopaste<CR>
+"nnoremap <silent><A-k> :set paste<CR>m`O<Esc>`:set nopaste<CR>
+" bind L to grep word under the curor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" better grep with the silver searcher.
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+let mapleader = ","
+
+let delimitMate_expand_space = 1
+au FileType tcl let b:delimitMate_expand_space = 1
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
