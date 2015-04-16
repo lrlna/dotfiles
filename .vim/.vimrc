@@ -5,8 +5,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'briancollins/vim-jst'
 Bundle 'raimondi/delimitmate'
 Bundle 'tpope/vim-surround'
+Plugin 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
 Bundle 'wincent/Command-T'
 Plugin 'kien/ctrlp.vim'
