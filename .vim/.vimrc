@@ -6,6 +6,8 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'briancollins/vim-jst'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'kchmck/vim-coffee-script'
 Bundle 'raimondi/delimitmate'
 Bundle 'tpope/vim-surround'
 Plugin 'pangloss/vim-javascript'
