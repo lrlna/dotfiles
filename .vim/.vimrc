@@ -12,7 +12,6 @@ Bundle 'raimondi/delimitmate'
 Bundle 'tpope/vim-surround'
 Plugin 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
-Bundle 'wincent/Command-T'
 Plugin 'kien/ctrlp.vim'
 Plugin 'danro/rename.vim'
 Bundle 'slim-template/vim-slim.git'
@@ -57,6 +56,13 @@ let mapleader = ","
 let delimitMate_expand_space = 1
 au FileType tcl let b:delimitMate_expand_space = 1
 
+" get <Del> to work properly
+set backspace=indent,eol,start
+
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev\|lib-cov'
+let g:ctrlp_extensions = ['tag']
+let g:ctrlp_switch_buffer=0
