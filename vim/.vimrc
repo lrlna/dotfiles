@@ -64,6 +64,7 @@ set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set number
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev\|lib-cov'
 let g:ctrlp_extensions = ['tag']
