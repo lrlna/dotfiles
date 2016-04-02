@@ -67,6 +67,8 @@ set shiftwidth=2
 set expandtab
 set number
 
+autocmd BufWritePost * silent! execute "!/home/irina/developer/uss-local-environment/plugins/vim-plugin/uss-sync.py %:p /home/irina/developer/uss-local-environment/ > /dev/null 2>&1"
+
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev\|lib-cov'
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_switch_buffer=0
