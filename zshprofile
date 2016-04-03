@@ -1,0 +1,42 @@
+# oh my gosh i have a cool prompt thanks  o notwaldorf 👑
+
+# git things first
+ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[cyan]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}"
+
+ZSH_THEME_GIT_PROMPT_AHEAD="%{$reset_color%}⇡"
+ZSH_THEME_GIT_PROMPT_BEHIND="%{$reset_color%}⇣"
+
+
+# fancy git things
+git_dirty() {
+  # check if we're in a git repo
+  command git rev-parse --is-inside-work-tree &>/dev/null || return
+  # check if it's dirty
+  command git diff --quiet --ignore-submodules HEAD &>/dev/null; [ $? -eq 1   ] && echo ' 🔮 ' || echo ' 👑 '
+}
+
+# If it's a git repo, add the git prompt
+git_prompt_go() {
+  # check if we're in a git repo
+  command git rev-parse --is-inside-work-tree &>/dev/null || return
+  echo ' 'on $(git_current_branch) $(git_prompt_ahead)$(git_prompt_behind)`git_dirty`' '
+}
+
+# cool emoticon (❍ᴥ❍ʋ) 
+read -d '' EMOTICONZ << EOF
+₍ᐢ•ﻌ•ᐢ₎*･ﾟ｡
+EOF
+
+# need to fix this prompt 
+#PROMPT='%F{red}$(echo "$EMOTICONZ") %F{green}%~%F{cyan}`git_prompt_go`%f%F{red} ❥ %f'
+autoload -Uz vcs_info
+ zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
+ zstyle ':vcs_info:git*' formats ' %b'
+ zstyle ':vcs_info:git*' actionformats ' %b|%a'
+ 
+# enable prompt substitution
+setopt PROMPT_SUBST
+
+PROMPT='%F{cyan}$(echo "$EMOTICONZ") %F{magenta}%c%F{cyan}$vcs_info_msg_0_ %F{cyan}%`git_dirty` %f%F{magenta}❥ %f'
