@@ -1,4 +1,6 @@
-# oh my gosh i have a cool prompt thanks  o notwaldorf 👑
+# oh my gosh i have a cool prompt thanks to notwaldorf 👑
+
+echo 'hey you ✨  stellar ✨  you '
 
 # git things first
 ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[cyan]%}"
