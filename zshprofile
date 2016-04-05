@@ -41,4 +41,4 @@ autoload -Uz vcs_info
 # enable prompt substitution
 setopt PROMPT_SUBST
 
-PROMPT='%F{cyan}$(echo "$EMOTICONZ") %F{magenta}%c%F{cyan}$vcs_info_msg_0_ %F{cyan}%`git_dirty` %f%F{magenta}❥ %f'
+PROMPT='%F{cyan}$(echo "$EMOTICONZ") %F{magenta}%c%F{cyan}$vcs_info_msg_0_ %F{cyan}%`git_dirty` %f%F{magenta} ✿ %f'
