@@ -83,7 +83,11 @@ fi
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-alias checkotu="git checkout"
 
 export NVM_DIR="/Users/lrlna/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# export WORKON for python virtualenv configurations
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/lrlna
+source /usr/local/bin/virtualenvwrapper.sh
