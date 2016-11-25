@@ -272,27 +272,5 @@ layers configuration. You are free to put any user code."
                            ("melpa" . "https://melpa.org/packages/")))
   )
 
-(defun telus-after-save-hook ()
-  (if buffer-file-name
-      (progn
-        (setq is-tt-file (numberp (string-match "^/home/irina/developer/\\([^/]*\\)/workspace" buffer-file-name)))
-        (if is-tt-file
-            (progn
-              (message "Syncing to docroot %s" buffer-file-name)
-              (setq tt-dir (match-string 1 buffer-file-name))
-              ;; Old Local Environment
-              ;;(setq tt-cmd (concat "/data/source/" tt-dir "/scripts/copy-docroot-file.sh "))
-              ;; New Local Environment
-              (setq tt-cmd (concat "/home/irina/developer/" tt-dir "/scripts/copy-docroot-direct.py "))
-              (setq tt-workspace (concat "/home/irina/developer/" tt-dir "/workspace/"))
-              (shell-command (concat tt-cmd (replace-regexp-in-string tt-workspace "" buffer-file-name)))
-              (message (concat tt-cmd (replace-regexp-in-string tt-workspace "" buffer-file-name)))
-              )
-          )
-        )
-    )
-  )
-(add-hook 'after-save-hook 'telus-after-save-hook)
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
