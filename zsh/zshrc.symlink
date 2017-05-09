@@ -1,0 +1,56 @@
+# set a global username to use here
+user="lrlna"
+
+# Path to your oh-my-zsh installation.
+export PATH=`pwd`/depot_tools:"$PATH"
+export ZSH=/Users/$user/.oh-my-zsh
+export PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/Users/$USER/developer/dotfiles/lilbins:$PATH"
+
+ZSH_THEME=""
+
+# get tmux to work and stuff
+alias tmux="TERM=screen-256color-bce tmux -u2"
+
+plugins=(git git-prompt git-flow zsh-completions)
+autoload -U compinit && compinit
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $HOME/developer/dotfiles/zsh/profile.symlink
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
+
+# need that nvm thing 
+export NVM_DIR="/Users/$user/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# export WORKON for python virtualenv configurations
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/$user
+source /usr/local/bin/virtualenvwrapper.sh
+
+# set up gpg-agent
+# from:  https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b
+if [ -f ~/.gnupg/.gpg-agent-info  ] && [ -n "$(pgrep gpg-agent)"  ]; then
+  source ~/.gnupg/.gpg-agent-info
+  export GPG_AGENT_INFO
+else
+  eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+fi
+
+# npm without sudo 
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+PATH="$NPM_PACKAGES/bin:$PATH"
+
+unset MANPATH 
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"

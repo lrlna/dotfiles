@@ -4,24 +4,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'evidens/vim-twig'
-Plugin 'briancollins/vim-jst'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'othree/html5.vim'
-Bundle 'raimondi/delimitmate'
-Bundle 'tpope/vim-surround'
-Plugin 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'danro/rename.vim'
 Bundle 'slim-template/vim-slim.git'
 Plugin 'scrooloose/nerdcommenter'
-Bundle 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Bundle 'raimondi/delimitmate'
+Plugin 'briancollins/vim-jst'
+Plugin 'digitaltoad/vim-jade'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surround'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'evidens/vim-twig'
+Plugin 'othree/html5.vim'
+Plugin 'danro/rename.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'grep.vim'
-Plugin 'JavaKit'
 
 call vundle#end()
 syntax enable
@@ -33,12 +32,6 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
-" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-"nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>`:noh<CR>
-"nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>`:noh<CR>
-"nnoremap <silent><A-j> :set paste<CR>m`o<Esc>`:set nopaste<CR>
-"nnoremap <silent><A-k> :set paste<CR>m`O<Esc>`:set nopaste<CR>
-" bind L to grep word under the curor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " better grep with the silver searcher.
@@ -59,6 +52,9 @@ let mapleader = ","
 let delimitMate_expand_space = 1
 au FileType tcl let b:delimitMate_expand_space = 1
 
+" run standard on write \o/
+let g:syntastic_javascript_checkers = ['standard']
+
 " get <Del> to work properly
 set backspace=indent,eol,start
 
@@ -66,8 +62,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set number
-
-autocmd BufWritePost * silent! execute "!/home/irina/developer/uss-local-environment/plugins/vim-plugin/uss-sync.py %:p /home/irina/developer/uss-local-environment/ > /dev/null 2>&1"
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev\|lib-cov'
 let g:ctrlp_extensions = ['tag']
