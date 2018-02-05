@@ -6,7 +6,7 @@ export PATH=`pwd`/depot_tools:"$PATH"
 export ZSH=/Users/$user/.oh-my-zsh
 export PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/bin:$PATH"
-export PATH="/Users/$USER/developer/dotfiles/lilbins:$PATH"
+export PATH="/Users/$USER/dotfiles/lilbins:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ZSH_THEME=""
