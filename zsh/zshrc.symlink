@@ -7,6 +7,7 @@ export ZSH=/Users/$user/.oh-my-zsh
 export PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/$USER/developer/dotfiles/lilbins:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 ZSH_THEME=""
 
@@ -32,11 +33,6 @@ fi
 # need that nvm thing 
 export NVM_DIR="/Users/$user/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# export WORKON for python virtualenv configurations
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/$user
-source /usr/local/bin/virtualenvwrapper.sh
 
 # set up gpg-agent
 # from:  https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b
