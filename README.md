@@ -50,10 +50,9 @@ ln -s ${pwd}/.profile .profile
 ln -s ${pwd}/vim/vimrc ~/.profile
 ```
 
-You will need a few things to get gpg stuff to work. Most of the docs are in [this repo](https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b)
-
-```bash
-```
+1. You will need a few things to get gpg stuff to work. Most of the docs are in [this repo](https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b)
+2. GPG keys need to be generated. Follow the instructions [here](https://help.github.com/articles/generating-a-new-gpg-key)
+3. get [nvm](https://github.com/creationix/nvm)
 
 ## tmux
 
