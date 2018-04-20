@@ -6,7 +6,6 @@ call vundle#begin()
 
 Bundle 'slim-template/vim-slim.git'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
@@ -53,7 +52,10 @@ let delimitMate_expand_space = 1
 au FileType tcl let b:delimitMate_expand_space = 1
 
 " run standard on write \o/
-let g:syntastic_javascript_checkers = ['standard']
+" let g:syntastic_javascript_checkers = ['standard']
+" let g:syntastic_javascript_standard_exec = 'standard'
+" autocmd bufwritepost ~/code/lrlna/*.js silent !standard --fix %
+" set autoread
 
 " get <Del> to work properly
 set backspace=indent,eol,start
