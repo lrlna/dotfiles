@@ -14,6 +14,7 @@ Plugin 'briancollins/vim-jst'
 Plugin 'digitaltoad/vim-jade'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
+Plugin 'rust-lang/rust.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'evidens/vim-twig'
 Plugin 'othree/html5.vim'
@@ -50,6 +51,18 @@ let mapleader = ","
 
 let delimitMate_expand_space = 1
 au FileType tcl let b:delimitMate_expand_space = 1
+
+" Rust
+" ====
+au BufRead,BufNewFile *.rs set filetype=rust
+let g:rustfmt_autosave = 1
+let g:rust_recommended_style = 0
+augroup filetype_rust
+  autocmd!
+  autocmd BufReadPost *.rs setlocal filetype=rust
+  nmap ! :s/^/\=printf("println!(\"%s:%d\");\n", expand('%'), line('.'))<CR>:noh<CR>
+  setl sw=2 sts=2 et
+augroup END
 
 " run standard on write \o/
 " let g:syntastic_javascript_checkers = ['standard']
