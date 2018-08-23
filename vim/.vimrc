@@ -34,6 +34,20 @@ nmap <silent> <A-Right> :wincmd l<CR>
 
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+" Clipboard
+" =========
+set clipboard^=unnamed,unnamedplus
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
+" Colours
+" =======
+let base16colorspace=256
+highlight ColorColumn ctermbg=96
+highlight Visual ctermfg=white ctermbg=96
+
 " better grep with the silver searcher.
 " The Silver Searcher
 if executable('ag')
@@ -60,23 +74,28 @@ let g:rust_recommended_style = 0
 augroup filetype_rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
-  nmap ! :s/^/\=printf("println!(\"%s:%d\");\n", expand('%'), line('.'))<CR>:noh<CR>
   setl sw=2 sts=2 et
 augroup END
 
+" Show an indication when we are over 80 chars
+let &colorcolumn=join(range(81,81),",")
+au FileType qf setlocal nonumber colorcolumn=
+
+" javascript
+" ==========
 " run standard on write \o/
-" let g:syntastic_javascript_checkers = ['standard']
-" let g:syntastic_javascript_standard_exec = 'standard'
-" autocmd bufwritepost ~/code/lrlna/*.js silent !standard --fix %
-" set autoread
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_exec = 'standard'
+autocmd bufwritepost ~/code/lrlna/*.js silent !standard --fix %
+set autoread
 
 " get <Del> to work properly
 set backspace=indent,eol,start
-
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set number
+set textwidth=80     " Show gutter at 80 chars
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev\|lib-cov'
 let g:ctrlp_extensions = ['tag']

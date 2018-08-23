@@ -8,11 +8,17 @@ export PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/$USER/dotfiles/lilbins:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+export TEMPLATES="/Users/lrlna/templates"
 
 ZSH_THEME=""
 
 # get tmux to work and stuff
 alias tmux="TERM=screen-256color-bce tmux -u2"
+
+# alias c#'s package manager to mono
+alias nuget="mono /usr/local/bin/nuget.exe"
 
 plugins=(git git-prompt git-flow zsh-completions)
 autoload -U compinit && compinit
