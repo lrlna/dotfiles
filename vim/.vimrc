@@ -4,6 +4,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'autozimu/LanguageClient-neovim'
 Bundle 'slim-template/vim-slim.git'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'pangloss/vim-javascript'
@@ -35,7 +36,8 @@ nmap <silent> <A-Right> :wincmd l<CR>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Clipboard
-" =========
+" ---------
+"
 set clipboard^=unnamed,unnamedplus
 vmap <C-c> "+yi
 vmap <C-x> "+c
@@ -43,11 +45,15 @@ vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
 " Colours
-" =======
+" -------
+"
 let base16colorspace=256
 highlight ColorColumn ctermbg=96
 highlight Visual ctermfg=white ctermbg=96
 
+" Silver Searcher
+" ---------------
+"
 " better grep with the silver searcher.
 " The Silver Searcher
 if executable('ag')
@@ -66,8 +72,17 @@ let mapleader = ","
 let delimitMate_expand_space = 1
 au FileType tcl let b:delimitMate_expand_space = 1
 
+" Language Server
+" ---------------
+"
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['rustup', 'run', 'nightly', 'rls']
+\ }
+let g:LanguageClient_loggingLevel = 'DEBUG'
+
 " Rust
-" ====
+" ----
+"
 au BufRead,BufNewFile *.rs set filetype=rust
 let g:rustfmt_autosave = 1
 let g:rust_recommended_style = 0
@@ -82,13 +97,17 @@ let &colorcolumn=join(range(81,81),",")
 au FileType qf setlocal nonumber colorcolumn=
 
 " javascript
-" ==========
+" ----------
+"
 " run standard on write \o/
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_standard_exec = 'standard'
 autocmd bufwritepost ~/code/lrlna/*.js silent !standard --fix %
 set autoread
 
+" Deletion
+" --------
+"
 " get <Del> to work properly
 set backspace=indent,eol,start
 set tabstop=2
