@@ -22,10 +22,17 @@ Plugin 'othree/html5.vim'
 Plugin 'danro/rename.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'grep.vim'
+Plugin 'file:///Users/lrlna/.vim/bundle/LanguageClient_serverCommands'
 
 call vundle#end()
 syntax enable
 filetype plugin indent on
+
+" Rust
+" ====
+set hidden
+
+let g:LanguageClient_serverCommands = { 'rust': ['rustup', 'run', 'nightly', 'rls'] }
 
 map <C-n> :NERDTreeToggle<CR>
 nmap <silent> <A-Up> :wincmd k<CR>
@@ -86,6 +93,8 @@ let g:LanguageClient_loggingLevel = 'DEBUG'
 au BufRead,BufNewFile *.rs set filetype=rust
 let g:rustfmt_autosave = 1
 let g:rust_recommended_style = 0
+let g:rustfmt_command = "rustup run nightly rustfmt"
+
 augroup filetype_rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
