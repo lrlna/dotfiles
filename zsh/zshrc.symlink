@@ -8,11 +8,23 @@ export PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/$USER/dotfiles/lilbins:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH=/Library/PostgreSQL/12.1.1/bin:$PATH
+
+antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+
+export CLASSPATH=".:/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH"
 
 export TEMPLATES="/Users/lrlna/templates"
 
+export COMPASS_HOME="/Users/lrlna/code/mongodb/compass"
+
 ZSH_THEME=""
+
+alias ls='exa'
+alias cat='bat'
+alias less='bat'
 
 # get tmux to work and stuff
 alias tmux="TERM=screen-256color-bce tmux -u2"
@@ -42,12 +54,12 @@ export NVM_DIR="/Users/$user/.nvm"
 
 # set up gpg-agent
 # from:  https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b
-# if [ -f ~/.gnupg/.gpg-agent-info  ] && [ -n "$(pgrep gpg-agent)"  ]; then
-#   source ~/.gnupg/.gpg-agent-info
-#   export GPG_AGENT_INFO
-# else
-#   eval $(gpg-agent --daemon ~/.gnupg/.gpg-agent-info)
-# fi
+if [ -f ~/.gnupg/.gpg-agent-info  ] && [ -n "$(pgrep gpg-agent)"  ]; then
+  source ~/.gnupg/.gpg-agent-info
+  export GPG_AGENT_INFO
+else
+  eval $(gpg-agent --daemon ~/.gnupg/.gpg-agent-info)
+fi
 
 # npm without sudo 
 NPM_PACKAGES="${HOME}/.npm-packages"
@@ -57,3 +69,4 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH 
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"

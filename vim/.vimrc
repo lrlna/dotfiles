@@ -4,12 +4,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'autozimu/LanguageClient-neovim'
 Bundle 'slim-template/vim-slim.git'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Bundle 'raimondi/delimitmate'
 Plugin 'briancollins/vim-jst'
 Plugin 'digitaltoad/vim-jade'
@@ -71,14 +70,6 @@ let mapleader = ","
 
 let delimitMate_expand_space = 1
 au FileType tcl let b:delimitMate_expand_space = 1
-
-" Language Server
-" ---------------
-"
-let g:LanguageClient_serverCommands = {
-\ 'rust': ['rustup', 'run', 'nightly', 'rls']
-\ }
-let g:LanguageClient_loggingLevel = 'DEBUG'
 
 " Rust
 " ----
