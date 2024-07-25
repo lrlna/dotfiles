@@ -45,9 +45,7 @@ $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 All the files are gonna be symlinked to `~/`, once you clone, run all the symlinks with:
 
 ```bash
-ln -s ${pwd}/vim/vimrc ~/.vimrc
-ln -s ${pwd}/.profile .profile
-ln -s ${pwd}/vim/vimrc ~/.profile
+$ ./setup.sh
 ```
 
 1. You will need a few things to get gpg stuff to work. Most of the docs are in [this repo](https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b)
