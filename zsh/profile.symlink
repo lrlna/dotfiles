@@ -1,9 +1,9 @@
-echo 'hey you ✨  stellar ✨  you '
+echo 'reloading ...'
 
 # git things first
-ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[cyan]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[#E36526]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[#E36526]%}"
 
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$reset_color%}⇡"
 ZSH_THEME_GIT_PROMPT_BEHIND="%{$reset_color%}⇣"
@@ -30,7 +30,7 @@ read -d '' EMOTICONZ << EOF
 EOF
 
 # need to fix this prompt 
-#PROMPT='%F{red}$(echo "$EMOTICONZ") %F{green}%~%F{cyan}`git_prompt_go`%f%F{red} ❥ %f'
+#PROMPT='%F{red}$(echo "$EMOTICONZ") %F{green}%~%F{#E36526}`git_prompt_go`%f%F{red} ❥ %f'
 autoload -Uz vcs_info
  zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
  zstyle ':vcs_info:git*' formats ' %b'
@@ -39,6 +39,6 @@ autoload -Uz vcs_info
 # enable prompt substitution
 setopt PROMPT_SUBST
 
-PROMPT='%F{cyan}$(echo "$EMOTICONZ") %F{magenta}%c%F{cyan}$vcs_info_msg_0_ %F{cyan}%`git_dirty` %f%F{magenta} ✿ %f'
+PROMPT='%F{#E36526}$(echo "$EMOTICONZ") %F{#B62140}%c%F{#E36526}$vcs_info_msg_0_ %F{#E36526}%`git_dirty` %f%F{#B62140}✿ %f'
 
 set -o vi
