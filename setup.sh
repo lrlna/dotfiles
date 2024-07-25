@@ -24,3 +24,11 @@ _link "$src" "$dst"
 src="$dirname/zsh/profile.symlink"
 dst="$HOME/.profile"
 _link "$src" "$dst"
+
+src="$dirname/alacritty/themes/theme.toml"
+dst="$HOME/.config/alacritty/themes/theme.toml"
+_link "$src" "$dst"
+
+src="$dirname/alacritty/alacritty.toml"
+dst="$HOME/.config/alacritty/alacritty.toml"
+_link "$src" "$dst"
