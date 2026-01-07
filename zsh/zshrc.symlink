@@ -11,25 +11,31 @@ export PATH="/usr/local/Cellar/mongodb/4.0.2/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+# source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+# source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+
+# use `code` to start vscode
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export TEMPLATES="/Users/lrlna/templates"
+
+# use 1Password SSH Client
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 ZSH_THEME=""
 
 # get tmux to work and stuff
 alias tmux="TERM=screen-256color-bce tmux -u2"
 
-# alias c#'s package manager to mono
-alias nuget="mono /usr/local/bin/nuget.exe"
+# alias unix-to-rust replacements
+alias cat="bat"
+alias ls="eza"
+alias find="fd"
+alias grep="ripgrep"
+alias ps="mprocs"
 
 plugins=(git git-prompt git-flow zsh-completions)
 autoload -U compinit && compinit
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $HOME/Code/dotfiles/zsh/profile.symlink
 
@@ -44,15 +50,6 @@ fi
 export NVM_DIR="/Users/$user/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# set up gpg-agent
-# from:  https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b
-# if [ -f ~/.gnupg/.gpg-agent-info  ] && [ -n "$(pgrep gpg-agent)"  ]; then
-#   source ~/.gnupg/.gpg-agent-info
-#   export GPG_AGENT_INFO
-# else
-#   eval $(gpg-agent --daemon ~/.gnupg/.gpg-agent-info)
-# fi
-
 # npm without sudo 
 NPM_PACKAGES="${HOME}/.npm-packages"
 
@@ -61,3 +58,5 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH 
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias python=/usr/bin/python3

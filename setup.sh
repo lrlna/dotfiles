@@ -9,8 +9,18 @@ _link () {
   ln -s "$1" "$2"
 }
 
-src="$dirname/vim/vimrc"
+brew bundle
+
+src="$dirname/vim/vimrc.symlink"
 dst="$HOME/.vimrc"
+_link "$src" "$dst"
+
+src="$dirname/git/gitignore.symlink"
+dst="$HOME/.gitignore"
+_link "$src" "$dst"
+
+src="$dirname/git/gitconfig.symlink"
+dst="$HOME/.gitconfig"
 _link "$src" "$dst"
 
 src="$dirname/tmux/tmux.conf"

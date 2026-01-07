@@ -42,3 +42,4 @@ setopt PROMPT_SUBST
 PROMPT='%F{#E36526}$(echo "$EMOTICONZ") %F{#B62140}%c%F{#E36526}$vcs_info_msg_0_ %F{#E36526}%`git_dirty` %f%F{#B62140}✿ %f'
 
 set -o vi
+. "$HOME/.cargo/env"

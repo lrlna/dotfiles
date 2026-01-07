@@ -2,9 +2,10 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'autozimu/LanguageClient-neovim'
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
 Bundle 'slim-template/vim-slim.git'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'pangloss/vim-javascript'
@@ -16,7 +17,6 @@ Plugin 'digitaltoad/vim-jade'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 Plugin 'rust-lang/rust.vim'
-Plugin 'gmarik/Vundle.vim'
 Plugin 'evidens/vim-twig'
 Plugin 'othree/html5.vim'
 Plugin 'danro/rename.vim'
@@ -25,8 +25,8 @@ Plugin 'grep.vim'
 Plugin 'file:///Users/lrlna/.vim/bundle/LanguageClient_serverCommands'
 
 call vundle#end()
-syntax enable
 filetype plugin indent on
+syntax enable
 
 " Rust
 " ====
